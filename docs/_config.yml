@@ -1,0 +1,6 @@
+title: Mike Vaughn's Blog
+description: Notes on software engineering, C/C++, and web development.
+theme: minima
+
+plugins:
+  - jekyll-feed
