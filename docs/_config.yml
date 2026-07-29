@@ -34,6 +34,8 @@ theme_mode: light
 
 toc: true
 
+paginate: 10
+
 markdown: kramdown
 highlighter: rouge
 
