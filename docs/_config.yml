@@ -1,6 +1,102 @@
+# ═══════════════════════════════════════════════════════════════════
+# _config.yml  ·  MVeng Blog
+# Theme: Chirpy  (https://github.com/cotes2020/jekyll-theme-chirpy)
+# Matches the styling of the MVeng landing page (mveng-website repo):
+# same logo, same light-blue background override.
+# ═══════════════════════════════════════════════════════════════════
+
+theme: jekyll-theme-chirpy
+
+lang: en
+timezone: America/Chicago
+
 title: Mike Vaughn's Blog
-description: Notes on software engineering, C/C++, and web development.
-theme: minima
+tagline: Notes on software engineering, C/C++, and web development
+description: >-
+  Practical engineering write-ups, lessons learned, and tool deep-dives
+  from M. Vaughn.
+
+# Project-page site: https://mvaughn51.github.io/mvaughn51/
+url: "https://mvaughn51.github.io"
+baseurl: "/mvaughn51"
+
+github:
+  username: mvaughn51
+
+social:
+  name: M. Vaughn
+  email: mvaughn51@gmail.com
+  links:
+    - https://github.com/mvaughn51
+
+avatar: /assets/img/logo.svg
+theme_mode: light
+
+toc: true
+
+markdown: kramdown
+highlighter: rouge
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+assets:
+  self_host:
+    enabled: false
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - .jekyll-cache
+  - .sass-cache
 
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
