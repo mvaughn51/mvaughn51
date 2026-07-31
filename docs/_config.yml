@@ -8,7 +8,7 @@
 theme: jekyll-theme-chirpy
 
 lang: en
-timezone: America/Chicago
+timezone: America/Los_Angeles # PST/PDT
 
 title: Mike Vaughn's Blog
 tagline: Notes on software engineering, C/C++, and web development
@@ -33,6 +33,12 @@ avatar: /assets/img/logo.svg
 theme_mode: light
 
 toc: true
+
+actions:
+  edit_post:
+    enabled: true
+    url: "https://github.com/mvaughn51/mvaughn51/edit/main/docs"
+    static_url: false
 
 # ───────────────────────────────────────
 # COMMENTS
@@ -121,3 +127,13 @@ plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-paginate
+  - jekyll-archives
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
