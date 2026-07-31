@@ -7,9 +7,15 @@ tags: [arduino, electronics, embedded, strongman]
 image:
   path: /assets/img/bag-toss-competition.jpg
   alt: The scoring rig deployed at a live strongman bag-toss competition, light column visible on the pole behind the athlete
+image_inline: true
 ---
 
-Strongman events are judged by eye more often than not — a head judge watching a sandbag arc over a bar, calling the height, hoping the replay board agrees. For a bag-toss event, that's a bottleneck: someone has to *watch closely* and there's no way to review it later. So I built a small embedded system to do the watching, and it ended up on the competition floor a few weeks after I started.
+Strongman bag-toss events are usually scored by a judge watching a sandbag arc over a bar. We replaced the judge with a column of beam sensors, two I²C port expanders, and a string of repurposed truck tail lights — and three weeks later it was running live on a competition floor.
+
+<div class="mt-3 mb-3">
+  <img src="/assets/img/bag-toss-competition.jpg" class="preview-img" alt="The scoring rig deployed at a live strongman bag-toss competition, light column visible on the pole behind the athlete" w="1200" h="630">
+  <figcaption class="text-center pt-2 pb-2">The rig on the competition floor, September 2024 — the light column is visible on the pole behind the throwing lane.</figcaption>
+</div>
 
 ## The idea
 

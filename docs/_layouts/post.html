@@ -46,7 +46,13 @@ script_includes:
         </span>
       {% endif %}
 
-      {% if page.image %}
+      {% comment %}
+        MVeng customization: `image_inline: true` in front matter skips
+        this header rendering of page.image, for posts that place the
+        same image manually further down in the body content instead
+        (e.g. after an intro paragraph) rather than above the fold.
+      {% endcomment %}
+      {% if page.image and page.image_inline != true %}
         {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
         {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
         {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
