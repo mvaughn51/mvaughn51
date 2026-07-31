@@ -16,3 +16,132 @@
 :root[data-bs-theme='light'] {
   --main-bg: #eaf4fb;
 }
+
+// ════════════════════════════════════════════════════════════════════
+// Post-type backgrounds
+//
+// _layouts/post.html adds a `post-theme-<category-slug>` class to the
+// <article> element, derived from the post's first category — e.g.
+// `categories: [Projects]` becomes `post-theme-projects`. To give another
+// category its own look (RV'ing, Offroading, Cooking, Random, ...), add
+// a new `.post-theme-<slug>` block below; no layout changes needed, and
+// posts with no matching block just get the site default.
+// ════════════════════════════════════════════════════════════════════
+
+:root[data-bs-theme='light'] {
+  --projects-grid-line: rgb(63 110 120 / 12%);
+}
+:root[data-bs-theme='dark'] {
+  --projects-grid-line: rgb(127 176 186 / 16%);
+}
+
+.post-theme-projects {
+  background-image:
+    linear-gradient(var(--projects-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--projects-grid-line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  border: 1px solid var(--main-border-color);
+  border-radius: 6px;
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+
+// ════════════════════════════════════════════════════════════════════
+// Reusable post components
+//
+// Drop this markup directly into a post's markdown (kramdown passes raw
+// HTML through untouched). Not tied to any post-theme — they use the
+// site's existing card/link tokens so they match on every background.
+// ════════════════════════════════════════════════════════════════════
+
+// A left-to-right sequence of labeled steps, e.g. a state machine.
+.mv-steps {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 1.5rem 0;
+  overflow-x: auto;
+}
+
+.mv-step {
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  box-shadow: var(--card-shadow);
+  border-radius: 6px;
+  padding: 0.9rem 1.1rem;
+  flex: 1 0 11rem;
+  min-width: 11rem;
+
+  .mv-step-name {
+    font-family: ui-monospace, 'Cascadia Code', Consolas, 'SFMono-Regular', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--link-color);
+    margin-bottom: 0.4rem;
+  }
+
+  .mv-step-body {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--text-color);
+  }
+}
+
+.mv-step-arrow {
+  flex: none;
+  width: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted-color);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 576px) {
+  .mv-steps {
+    flex-direction: column;
+  }
+  .mv-step-arrow {
+    width: auto;
+    height: 1.4rem;
+    transform: rotate(90deg);
+  }
+}
+
+// A dated timeline, e.g. a commit/build log.
+.mv-log {
+  border-left: 1px solid var(--main-border-color);
+  margin: 1.5rem 0;
+  padding-left: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.mv-log-item {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -1.46rem;
+    top: 0.4em;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--link-color);
+  }
+
+  .mv-log-date {
+    font-family: ui-monospace, 'Cascadia Code', Consolas, 'SFMono-Regular', monospace;
+    font-size: 0.72rem;
+    color: var(--link-color);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .mv-log-desc {
+    font-size: 0.92rem;
+    color: var(--text-color);
+  }
+}

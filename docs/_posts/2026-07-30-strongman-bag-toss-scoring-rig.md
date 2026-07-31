@@ -37,9 +37,24 @@ All of it was laid out by hand across four sheets of schematic paper — this wa
 
 The logic in `bag.ino` boils down to a tiny state machine:
 
-- **Standby** — idle, watching the top beam to confirm the sensor column is aligned (lighting an `ALIGNED` LED so the operator can trust the rig before arming), waiting for someone to press **Arm**.
-- **Armed** — an interrupt fires the instant *any* beam breaks. Rather than stopping at the first interrupt, the controller keeps listening for a **1-second runout window** after that first break. A thrown bag doesn't break just one beam — it passes through several on the way up (and sometimes on the way back down) — so the runout window makes sure the whole flight is captured before the system decides what the *highest* beam broken actually was.
-- **Runout** — walks the recorded beam bitmask to find the highest one that broke, animates the light column filling up to that height (100ms per light, for a satisfying "climb" effect), prints the result out over serial, and drops back to Standby for the next throw.
+<div class="mv-steps">
+  <div class="mv-step">
+    <div class="mv-step-name">Standby</div>
+    <div class="mv-step-body">Idle, watching the top beam to confirm the sensor column is aligned (lighting an <code>ALIGNED</code> LED so the operator can trust the rig before arming), waiting for someone to press <strong>Arm</strong>.</div>
+  </div>
+  <div class="mv-step-arrow">&rarr;</div>
+  <div class="mv-step">
+    <div class="mv-step-name">Armed</div>
+    <div class="mv-step-body">An interrupt fires the instant <em>any</em> beam breaks. Rather than stopping at the first interrupt, the controller keeps listening for a <strong>1-second runout window</strong> after that first break, so the whole flight is captured before deciding which beam was highest.</div>
+  </div>
+  <div class="mv-step-arrow">&rarr;</div>
+  <div class="mv-step">
+    <div class="mv-step-name">Runout</div>
+    <div class="mv-step-body">Walks the recorded beam bitmask to find the highest one that broke, animates the light column filling up to that height, prints the result over serial, and drops back to Standby for the next throw.</div>
+  </div>
+</div>
+
+A thrown bag doesn't break just one beam — it passes through several on the way up (and sometimes on the way back down) — so the runout window makes sure the whole flight is captured before the system decides what the *highest* beam broken actually was.
 
 ```cpp
 // find the highest beam broken during the throw
@@ -61,7 +76,22 @@ It's a small piece of code, but the runout-window detail is the part that actual
 
 ## From breadboard to broadcast
 
-The git history tells the build's whole timeline in five commits: a first "sorta working" version on August 31, 2024, followed less than a week later by a cleanup pass and general hardening — logged in the source as `V1.10 — first customer ready version` on September 6. Ten days after that, on September 16, one more round of "MVP changes" went in — the same day a video of the rig running live is timestamped.
+The git history tells the build's whole timeline in five commits:
+
+<div class="mv-log">
+  <div class="mv-log-item">
+    <span class="mv-log-date">2024-08-31</span>
+    <div class="mv-log-desc">First "sorta working" version.</div>
+  </div>
+  <div class="mv-log-item">
+    <span class="mv-log-date">2024-09-06</span>
+    <div class="mv-log-desc">General cleanup and hardening — logged in the source as <code>V1.10, first customer-ready version</code>.</div>
+  </div>
+  <div class="mv-log-item">
+    <span class="mv-log-date">2024-09-16</span>
+    <div class="mv-log-desc">One more round of "MVP changes" — the same day a video of the rig running live is timestamped.</div>
+  </div>
+</div>
 
 That's also the day it showed up on an actual broadcast. The event board reads live scores next to competitor names and sponsor banners (ADL Live, SSF, HOSS Wear), with the light column visible on its pole in the background — proof that a design sketched on graph paper and hand-wired in a few weeks held up under real competition conditions, not just on a bench.
 
