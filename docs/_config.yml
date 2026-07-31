@@ -42,7 +42,7 @@ toc: true
 # Get repo_id / category / category_id from https://giscus.app after
 # enabling Discussions — paste them in below.
 comments:
-  active: "giscus"
+  provider: "giscus"
   giscus:
     repo: "mvaughn51/mvaughn51"
     repo_id: "R_kgDOTZcqNw"
