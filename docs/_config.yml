@@ -34,6 +34,24 @@ theme_mode: light
 
 toc: true
 
+# ───────────────────────────────────────
+# COMMENTS
+# ───────────────────────────────────────
+# Requires GitHub Discussions enabled on mvaughn51/mvaughn51 and the
+# giscus app (https://github.com/apps/giscus) installed on that repo.
+# Get repo_id / category / category_id from https://giscus.app after
+# enabling Discussions — paste them in below.
+comments:
+  active: "giscus"
+  giscus:
+    repo: "mvaughn51/mvaughn51"
+    repo_id: "R_kgDOTZcqNw"
+    category: "Announcements"
+    category_id: "DIC_kwDOTZcqN84DCW0y"
+    mapping: "pathname"
+    input_position: "bottom"
+    lang: "en"
+
 paginate: 10
 
 markdown: kramdown
@@ -61,7 +79,7 @@ defaults:
       type: posts
     values:
       layout: post
-      comments: false
+      comments: true
       toc: true
       permalink: /posts/:title/
   - scope:
