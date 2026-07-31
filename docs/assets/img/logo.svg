@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="mvengLogoTitle">
-  <title id="mvengLogoTitle">MVeng</title>
+  <title id="mvengLogoTitle">MV Engineering</title>
   <rect width="240" height="240" rx="40" fill="#123a52"/>
-  <path d="M40 190 L40 40 L74 40" fill="none" stroke="#5fb2e8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M200 50 L200 200 L166 200" fill="none" stroke="#5fb2e8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="120" y="172" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="150" fill="#f2f9ff">M</text>
+  <text x="120" y="150" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="118" fill="#f2f9ff">MV</text>
+  <text x="120" y="198" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="600" font-size="30" letter-spacing="1.5" fill="#5fb2e8">engineering</text>
 </svg>
