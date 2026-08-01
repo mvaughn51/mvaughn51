@@ -10,8 +10,8 @@ theme: jekyll-theme-chirpy
 lang: en
 timezone: America/Los_Angeles # PST/PDT
 
-title: Mike Vaughn's Blog
-tagline: Notes on software engineering, C/C++, and web development
+title: MVeng Blog
+tagline: Notes on Projects, Travel, RVing, and any other Random posts
 description: >-
   Practical engineering write-ups, lessons learned, and tool deep-dives
   from M. Vaughn.
