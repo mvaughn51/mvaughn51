@@ -150,3 +150,51 @@
     color: var(--text-color);
   }
 }
+
+// A captioned image that floats beside body text, letting copy wrap around
+// it — as opposed to Chirpy's default full-width centered figure (still the
+// right choice for a hero/header image or a screenshot dense enough that it
+// needs the full column width to stay legible).
+.mv-figure {
+  background: var(--card-bg);
+  border: 1px solid var(--main-border-color);
+  box-shadow: var(--card-shadow);
+  border-radius: 6px;
+  padding: 0.6rem;
+  margin: 0.3rem 0 1rem 1.25rem;
+  max-width: 45%;
+
+  img {
+    display: block;
+    width: 100%;
+    border-radius: 4px;
+  }
+
+  figcaption {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--text-muted-color);
+    padding-top: 0.5rem;
+  }
+
+  &.mv-figure-left {
+    float: left;
+    margin: 0.3rem 1.25rem 1rem 0;
+  }
+
+  &.mv-figure-right {
+    float: right;
+  }
+
+  &.mv-figure-wide {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 576px) {
+  .mv-figure {
+    float: none !important;
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+}
