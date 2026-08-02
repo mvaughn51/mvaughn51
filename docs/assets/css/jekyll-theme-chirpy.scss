@@ -22,6 +22,17 @@
   border-radius: 18% !important;
 }
 
+/* Chirpy hides the heading anchor (#) icon only inside `@media (hover: hover)`.
+   Touch browsers like Android Chrome never match that query, so the icon
+   falls through to its default visible state and shows a permanent "#"
+   after every H1-H5. Hide it there too. */
+@media not all and (hover: hover) {
+  .anchor {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
 // ════════════════════════════════════════════════════════════════════
 // Post-type backgrounds
 //
