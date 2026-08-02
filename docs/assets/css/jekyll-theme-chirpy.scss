@@ -209,3 +209,79 @@
     margin: 1rem 0;
   }
 }
+
+// A conversation transcript, styled after claude.ai's own look: the human
+// turn as a right-aligned rounded bubble, Claude's turn as plain flowing
+// text on the left with a small label — not a pixel-exact copy, just the
+// same two-tone read.
+.mv-chat {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.mv-chat-turn {
+  display: flex;
+  flex-direction: column;
+}
+
+.mv-chat-label {
+  font-family: ui-monospace, 'Cascadia Code', Consolas, 'SFMono-Regular', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted-color);
+  margin-bottom: 0.3rem;
+}
+
+.mv-chat-user {
+  align-items: flex-end;
+
+  .mv-chat-label {
+    padding-right: 0.2rem;
+  }
+
+  .mv-chat-bubble {
+    background: var(--link-color);
+    color: var(--card-bg);
+    border-radius: 1rem 1rem 0.2rem 1rem;
+    padding: 0.7rem 1.1rem;
+    max-width: 80%;
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    p {
+      margin-bottom: 0;
+    }
+    p + p {
+      margin-top: 0.6rem;
+    }
+  }
+}
+
+.mv-chat-claude {
+  align-items: flex-start;
+
+  .mv-chat-label {
+    padding-left: 0.2rem;
+  }
+
+  .mv-chat-body {
+    max-width: 90%;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-color);
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .mv-chat-user .mv-chat-bubble,
+  .mv-chat-claude .mv-chat-body {
+    max-width: 100%;
+  }
+}
